@@ -38,7 +38,9 @@ How to use
 ----------
 
 Ensure you have the following prerequisites :
+
     - running Apache Server or Nginx with php 7 installed.
+
     - curl installed on the host machine
 
 Server configuration :
