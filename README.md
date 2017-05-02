@@ -56,12 +56,37 @@ Server configuration :
 
     - Nginx, add server block config :
 
-        location ~ ^/Api/v1/(api)\.php(/|$) {
-            fastcgi_pass php-upstream;
-            fastcgi_split_path_info ^(.+\.php)(/.*)$;
-            include fastcgi_params;
-            fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-            fastcgi_param HTTPS off;
+        server {
+            listen 80;
+            listen [::]:80;
+
+            root /var/www/src;
+            index app.php;
+
+            server_name localhost;
+
+            # location / {
+            #         try_files $uri $uri/ =404;
+            # }
+
+            location / {
+                fastcgi_pass php-upstream;
+                 fastcgi_split_path_info ^(.+\.php)(/.*)$;
+                 include fastcgi_params;
+                 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                 fastcgi_param HTTPS off;
+                if (!-e $request_filename){
+                    rewrite Api/v1/(.*)$ /Api/v1/api.php?request=$1 break;
+                }
+            }
+
+            location ~ ^/Api/v1/(api)\.php(/|$) {
+                fastcgi_pass php-upstream;
+                fastcgi_split_path_info ^(.+\.php)(/.*)$;
+                include fastcgi_params;
+                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+                fastcgi_param HTTPS off;
+            }
         }
 
  * Using curl send post data with the input file src/boardingCardSet.json at the root of the project on the host machine:
