@@ -71,9 +71,10 @@ Server configuration :
         -H 'Accept: application/json' 
         --data-binary @src/boardingCardSet.json http://<your_server>/Api/v1/boarding_cards -v -s
 
-    boarding_cards is the route expose in the api
+        boarding_cards is the route expose in the api
 
 * In the browser (eg : Chrome) fill the address bar with :
+
 
         http://<your_server>/Api/v1/boarding_cards?cards[]=DGNQEK918KQP9IPZ5&cards[]=DGNQES0QGG4YKHHQ9&cards[]=DGNQF2A6PNCQ5FWU9&cards[]=DGNQF9S2MJJFRU6TS
 
