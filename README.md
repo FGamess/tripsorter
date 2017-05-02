@@ -89,6 +89,11 @@ Server configuration :
             }
         }
 
+You can use Docker with this project. If you use DockerCE for Mac, please 
+considere using docker-sync to speed up the synchronization fo the files (see docker-compose-mac.yml and docker-sync.yml file).
+
+Or you can use the docker-compose.yml file directly if you are under windows or Linux.
+
  * Using curl send post data with the input file src/boardingCardSet.json at the root of the project on the host machine:
 
         curl -XPOST 
