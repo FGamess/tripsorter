@@ -78,6 +78,8 @@ class BoardingCardSorter
                 $this->boardingCards->add($boardingCard);
             }
         }
+        
+        return $this->boardingCards;
     }
     
     private function fillBoardingCardSet(string &$nextDeparturePoint)
