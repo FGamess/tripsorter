@@ -60,4 +60,6 @@ http://<your_server>/Api/v1/boarding_cards?cards[]=DGNQEK918KQP9IPZ5&cards[]=DGN
 Tests
 -----
 
-In a terminal window just execute this command at the root foolder of the app : vendor/bin/phpunit tests
+In a terminal window just execute this command at the root foolder of the app : 
+
+        vendor/bin/phpunit tests
