@@ -9,27 +9,30 @@ Resources
 Architecture
 ------------
 
-    --Api
-        --Model :
-            - BoardingCardInterface.php
-            - BoardingCard.php
-            - BoardingCardManager.php
-            - NumberedSeat.php
-            - FlightBoardingCard.php
-        --Util :
-            - BoardingCardListInterface.php
-            - BoardingCardList.php
-            - BoardingCardSorter.php
-            - DirectivesFormatter.php
-        --v1 :
-            - ApiBehavior.php
-            - BoardingCardApi.php
-            - api.php
-    * tests :
-        * Unit :
-            * Api :
+    --src
+        --Api
+            --Model :
+                - BoardingCardInterface.php
+                - BoardingCard.php
+                - BoardingCardManager.php
+                - NumberedSeat.php
+                - FlightBoardingCard.php
+            --Util :
+                - BoardingCardListInterface.php
+                - BoardingCardList.php
                 - BoardingCardSorter.php
-            * Utils :
+                - DirectivesFormatter.php
+            --v1 :
+                - ApiBehavior.php
+                - BoardingCardApi.php
+                - api.php
+    --tests
+        --Unit
+            --Api :
+            --Utils :
+                - BoardingCardListTest.php
+                - BoardingCardSorterTest.php
+                - DirectivesFormatterTest.php
 
 How to use
 ----------
