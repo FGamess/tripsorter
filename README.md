@@ -55,7 +55,7 @@ Server configuration :
         </IfModule>
 
     - Nginx, add server block config :
-
+        
         server {
             listen 80;
             listen [::]:80;
