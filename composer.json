@@ -1,0 +1,17 @@
+{
+    "require": {
+        "phpunit/phpunit": "^6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "" : "src/",
+            "Api\\V1\\" : "src/Api/v1/",
+            "Api\\Model\\" : "src/Api/model/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
