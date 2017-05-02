@@ -6,6 +6,7 @@ use Util\BoardingCardSorter;
 use Api\Model\BoardingCardManager;
 use Api\Model\DataSource;
 use Util\BoardingCardList;
+use Util\DirectivesFormatter;
 
 /**
  * Description of BoardingCardApi
@@ -23,6 +24,12 @@ class BoardingCardApi extends ApiBehavior
      */
     private $cardSorter;
     
+    /**
+     *
+     * @var DirectivesFormatter
+     */
+    private $directivesFormatter;
+    
     public function __construct($request, $origin, $query = [], $postValues = []) 
     {
         $datasource = DataSource::getInstance();
@@ -30,6 +37,7 @@ class BoardingCardApi extends ApiBehavior
         $manager = new BoardingCardManager($datasource);
 
         $this->cardSorter = new BoardingCardSorter($manager);
+        $this->directivesFormatter = new DirectivesFormatter();
         $this->query = $query;
         $this->postValues = $postValues;
         parent::__construct($request);
@@ -46,20 +54,16 @@ class BoardingCardApi extends ApiBehavior
     {
         if ($this->method == 'GET') {
             $orderedSet = new BoardingCardList($this->cardSorter->sortBoardingCardSet($this->query['cards']));
-            $orderedBoardingCards = $orderedSet->getBoardingCards();
-           $directives = [];
-           foreach ($orderedBoardingCards as $key => $boardingCard) {
-               $directives[] = ++$key.". ".$boardingCard->getDirectives();
-           }
-           
-           $count = $orderedSet->count();
-           
-           $directives[] = ++$count.". You have arrived at your final destination.";
-                
-           return $directives;
-        } else {
-            return "Only accepts GET requests";
+            
+            return $this->directivesFormatter->getDirectives($orderedSet);
+        } elseif ($this->method == 'POST') {
+            $data = json_decode(file_get_contents('php://input'), true);
+            $orderedSet = new BoardingCardList($this->cardSorter->sortBoardingCardSet($data));
+            
+            return $this->directivesFormatter->getDirectives($orderedSet);
         }
-
+        else {
+            return "Only accepts GET or POST requests";
+        }
     }
 }
