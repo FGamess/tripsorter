@@ -35,17 +35,18 @@ Architecture
                 - BoardingCardSorterTest.php
                 - DirectivesFormatterTest.php
 
-How to use
-----------
+Prerequisites
+-------------
 
-Ensure you have the following prerequisites :
+### Ensure you have the following prerequisites :
 
     * running Apache Server or Nginx with php 7 installed.
     * curl installed on the host machine
+    * docker and docker-compose if you plan to use the docker-compose files provided in this project (optional)
 
-Server configuration :
+### Server configuration :
 
-    - Apache, using .htaccess file :
+    - Using your own Apache server, using .htaccess file (an example is providen in this project, **.htaccess_example** :
 
         <IfModule mod_rewrite.c>
         RewriteEngine On
@@ -54,7 +55,7 @@ Server configuration :
         RewriteRule api/v1/(.*)$ api/v1/api.php?request=$1 [QSA,NC,L]
         </IfModule>
 
-    - Nginx, add server block config :
+    - Using your own Nginx server, add server block config :
         
         server {
             listen 80;
@@ -88,6 +89,8 @@ Server configuration :
                 fastcgi_param HTTPS off;
             }
         }
+
+
 
 You can use Docker with this project. If you use DockerCE for Mac, please 
 considere using docker-sync to speed up the synchronization fo the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
