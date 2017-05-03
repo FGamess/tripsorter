@@ -38,24 +38,24 @@ Architecture
 Prerequisites
 -------------
 
-### Ensure you have the following prerequisites :
+###### Ensure you have the following prerequisites :
 
     * running Apache Server or Nginx with php 7 installed.
     * curl installed on the host machine
     * docker and docker-compose if you plan to use the docker-compose files provided in this project (optional)
 
-### Server configuration :
+###### Server configuration :
 
-    - Using your own Apache server, using .htaccess file (an example is providen in this project, **.htaccess_example** :
+- Using your own Apache server, using .htaccess file (an example is providen in this project, **.htaccess_example** :
 
         <IfModule mod_rewrite.c>
-        RewriteEngine On
-        RewriteCond %{REQUEST_FILENAME} !-f
-        RewriteCond %{REQUEST_FILENAME} !-d
-        RewriteRule api/v1/(.*)$ api/v1/api.php?request=$1 [QSA,NC,L]
+            RewriteEngine On
+            RewriteCond %{REQUEST_FILENAME} !-f
+            RewriteCond %{REQUEST_FILENAME} !-d
+            RewriteRule api/v1/(.*)$ api/v1/api.php?request=$1 [QSA,NC,L]
         </IfModule>
 
-    - Using your own Nginx server, add server block config :
+- Using your own Nginx server, add server block config :
         
         server {
             listen 80;
@@ -93,11 +93,11 @@ Prerequisites
 
 
 You can use Docker with this project. If you use DockerCE for Mac, please 
-considere using docker-sync to speed up the synchronization of the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
+consider using docker-sync to speed up the synchronization of the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
 
-Or you can use the **docker-compose.yml** file directly if you are under windows or Linux.
+Or you can use directly the **docker-compose.yml** file if you are under Windows or Linux.
 
-### How to use
+###### How to use
 
  1. Using curl send **POST** data with the input file src/boardingCardSet.json at the root of the project on the host machine:
 
@@ -106,9 +106,9 @@ Or you can use the **docker-compose.yml** file directly if you are under windows
         -H 'Accept: application/json' 
         --data-binary @src/boardingCardSet.json http://<your_server>/Api/v1/boarding_cards -v -s
 
-boarding_cards is the route exposed in the api
+  *boarding_cards* is the route exposed in the api.
 
-The input json file look like this :
+  The input json file looks like this :
 
     {
         "1": "DGNQEK918KQP9IPZ5",
@@ -124,9 +124,9 @@ The input json file look like this :
     `http://<your_server>/Api/v1/boarding_cards?cards[]=DGNQEK918KQP9IPZ5&cards[]=DGNQES0QGG4YKHHQ9&cards[]=DGNQF2A6PNCQ5FWU9&cards[]=DGNQF9S2MJJFRU6TS`
     
 
-Actually the api use a DataSource (see **src/Api/model/DataSource.php**) with 4 BoardingCards entities instanciated. There is no Database but we could use one.
+Actually the api use a DataSource (see **src/Api/model/DataSource.php**) with 4 BoardingCards instanciated entities. There is no Database but we could use one.
 
-The api take in input 4 UUIDs corresponding to 4 Boarding cards out of order. It finds the boarding cards associated and then sort them.
+The api takes in input 4 UUIDs corresponding to 4 Boarding cards out of order. It finds the boarding cards associated and then sort them.
 
 
 Unit Tests
