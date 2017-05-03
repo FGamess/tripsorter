@@ -64,13 +64,8 @@ Prerequisites
             listen [::]:80;
 
             root /var/www/src;
-            index app.php;
 
             server_name localhost;
-
-            # location / {
-            #         try_files $uri $uri/ =404;
-            # }
 
             location / {
                 fastcgi_pass php-upstream;
