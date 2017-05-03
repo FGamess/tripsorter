@@ -134,4 +134,4 @@ Unit Tests
 
 In a terminal window just execute this command at the root foolder of the app : 
 
-    `vendor/bin/phpunit tests`
+`vendor/bin/phpunit tests`
