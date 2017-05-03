@@ -1,0 +1,27 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    root /var/www/src;
+
+    server_name localhost;
+
+    location / {
+        fastcgi_pass php-upstream;
+         fastcgi_split_path_info ^(.+\.php)(/.*)$;
+         include fastcgi_params;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         fastcgi_param HTTPS off;
+        if (!-e $request_filename){
+            rewrite Api/v1/(.*)$ /Api/v1/api.php?request=$1 break;
+        }
+    }
+
+    location ~ ^/Api/v1/(api)\.php(/|$) {
+        fastcgi_pass php-upstream;
+        fastcgi_split_path_info ^(.+\.php)(/.*)$;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param HTTPS off;
+    }
+}
