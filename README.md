@@ -93,6 +93,7 @@ You can use Docker with this project. If you use DockerCE for Mac, please
 consider using docker-sync to speed up the synchronization of the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
 
 Or you can use directly the **docker-compose.yml** file if you are under Windows or Linux.
+Anyway, if you use Docker, Nginx configuration is already done.
 
 
 
