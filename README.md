@@ -29,6 +29,7 @@ Architecture
     --tests
         --Unit
             --Api :
+                - BoardingCardTestApi.php
             --Utils :
                 - BoardingCardListTest.php
                 - BoardingCardSorterTest.php
@@ -39,9 +40,8 @@ How to use
 
 Ensure you have the following prerequisites :
 
-    - running Apache Server or Nginx with php 7 installed.
-
-    - curl installed on the host machine
+    * running Apache Server or Nginx with php 7 installed.
+    * curl installed on the host machine
 
 Server configuration :
 
@@ -90,9 +90,9 @@ Server configuration :
         }
 
 You can use Docker with this project. If you use DockerCE for Mac, please 
-considere using docker-sync to speed up the synchronization fo the files (see docker-compose-mac.yml and docker-sync.yml file).
+considere using docker-sync to speed up the synchronization fo the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
 
-Or you can use the docker-compose.yml file directly if you are under windows or Linux.
+Or you can use the **docker-compose.yml** file directly if you are under windows or Linux.
 
  * Using curl send post data with the input file src/boardingCardSet.json at the root of the project on the host machine:
 
@@ -101,12 +101,12 @@ Or you can use the docker-compose.yml file directly if you are under windows or 
         -H 'Accept: application/json' 
         --data-binary @src/boardingCardSet.json http://<your_server>/Api/v1/boarding_cards -v -s
 
-        boarding_cards is the route expose in the api
+    boarding_cards is the route expose in the api
 
 * In the browser (eg : Chrome) fill the address bar with :
 
 
-        http://<your_server>/Api/v1/boarding_cards?cards[]=DGNQEK918KQP9IPZ5&cards[]=DGNQES0QGG4YKHHQ9&cards[]=DGNQF2A6PNCQ5FWU9&cards[]=DGNQF9S2MJJFRU6TS
+    `http://<your_server>/Api/v1/boarding_cards?cards[]=DGNQEK918KQP9IPZ5&cards[]=DGNQES0QGG4YKHHQ9&cards[]=DGNQF2A6PNCQ5FWU9&cards[]=DGNQF9S2MJJFRU6TS`
 
 
 
@@ -116,4 +116,4 @@ Tests
 
 In a terminal window just execute this command at the root foolder of the app : 
 
-        vendor/bin/phpunit tests
+    `vendor/bin/phpunit tests`
