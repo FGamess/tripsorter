@@ -4,7 +4,7 @@ TripSorter
 Resources
 ---------
 
-  * [Report issues] (franck.gamess@gmail.com)
+  * [Report issues] ()
 
 Architecture
 ------------
