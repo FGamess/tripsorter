@@ -43,6 +43,8 @@ Prerequisites
     * running Apache Server or Nginx with php 7 installed.
     * curl installed on the host machine
     * docker and docker-compose if you plan to use the docker-compose files provided in this project (optional)
+    
+
 
 ###### Server configuration :
 
@@ -96,6 +98,8 @@ You can use Docker with this project. If you use DockerCE for Mac, please
 consider using docker-sync to speed up the synchronization of the files (see **docker-compose-mac.yml** and **docker-sync.yml** file).
 
 Or you can use directly the **docker-compose.yml** file if you are under Windows or Linux.
+
+
 
 ###### How to use
 
