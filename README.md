@@ -109,14 +109,15 @@ Anyway, if you use Docker, Nginx configuration is already done.
   *boarding_cards* is the route exposed in the api.
 
   The input json file looks like this :
-
-    {
-        "1": "DGNQEK918KQP9IPZ5",
-        "2": "DGNQES0QGG4YKHHQ9",
-        "3": "DGNQF2A6PNCQ5FWU9",
-        "4": "DGNQF9S2MJJFRU6TS"
-    }
-
+  
+```json
+{
+    "1": "DGNQEK918KQP9IPZ5",
+    "2": "DGNQES0QGG4YKHHQ9",
+    "3": "DGNQF2A6PNCQ5FWU9",
+    "4": "DGNQF9S2MJJFRU6TS"
+}
+```
 
 2. In the browser (eg : Chrome), you can send **GET** data. Fill the address bar with :
 
