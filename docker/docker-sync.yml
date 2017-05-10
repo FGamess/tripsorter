@@ -35,7 +35,7 @@ syncs:
 
     # which folder to watch / sync from - you can use tilde (~), it will get expanded. Be aware that the trailing slash makes a difference
     # if you add them, only the inner parts of the folder gets synced, otherwise the parent folder will be synced as top-level folder
-    src: '.'
+    src: '../'
 
     # which destination on the sync-container. Since you will use volumes_from to mount this, this should match your code-deployment location in the real container
     dest: '/var/www'
