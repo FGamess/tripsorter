@@ -6,7 +6,7 @@ services:
     build: php7
     volumes:
       - ..:/var/www
-      - tripsorter-unison-sync:/var/www:rw
+      - tripsorter-unison-sync:/var/www:nocopy
     ports:
       - 9000:80
   nginx:
